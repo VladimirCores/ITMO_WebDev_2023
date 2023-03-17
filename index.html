@@ -5,14 +5,101 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Flex Box Practice - Travel Card</title>
+    <link type='text/css' rel='stylesheet' href='/styles/reset.css'>
+    <style>
+      @import url('https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i,900,900i');
+      @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i');
+      html, body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .card {
+        display: flex;
+        flex-direction: row;
+        max-width: 900px;
+        aspect-ratio: auto 16 / 9;
+        overflow: hidden;
+        position: relative;
+      }
+      .card-content {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .card-content-inner {
+        padding: 2rem;
+      }
+      .card-content-inner_header {
+        color: #7E7E7E;
+        padding-bottom: 1rem;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 0.75rem;
+        font-weight: 500;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+      }
+      .card-content-inner_title {
+        color: #222;
+        padding-bottom: 2rem;
+        font-family: 'Playfair Display', serif;
+        font-size: 3rem;
+        line-height: 3.5rem;
+        letter-spacing: 3px;
+        font-weight: 700;
+      }
+      .card-content-inner_link {
+        color: #2C2C2C;
+        font-family: 'Open Sans', sans-serif;
+        letter-spacing: 3px;
+        font-weight: bold;
+        font-size: 0.5rem;
+        text-transform: uppercase;
+        text-decoration: none;
+      }
+      .card-content-inner_text {
+        color: #7e7e7e;
+        padding-bottom: 3rem;
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 500;
+        font-size: 0.75rem;
+        line-height: 1.5rem;
+      }
+      .card-image {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        flex-direction: column;
+        overflow: hidden;
+      }
+      .card-image img {
+        height: 100%;
+        object-fit: cover;
+      }
+      .card-image .card-image_arrow {
+        padding: 12px;
+        background-color: white;
+      }
+    </style>
   </head>
-  <body>
-    <main>
-      <header>South Pacific Ocean</header>
-      <h2>Easter Island</h2>
-      <p>Many islands are little more than barren rock with few plants or animals on them. Others are among the most crowded places on Earth. Tokyo, one of the world’s largest cities, is on the island of Honshu in Japan. On another island, Manhattan, rise the towering skyscrapers of the financial capital of the world, New York City.</p>
-      <a>Read the article</a>
-      <img src="public/images/image_1.avif"/>
-    </main>
+  <body style="background-color: #0001">
+    <article class="card" style="background-color: #fff">
+      <section class='card-content'>
+        <div class='card-content-inner'>
+          <header class='card-content-inner_header'>South Pacific Ocean</header>
+          <h2 class='card-content-inner_title'>Easter Island</h2>
+          <p class='card-content-inner_text'>Many islands are little more than barren rock with few plants or animals on them. Others are among the most crowded places on Earth. Tokyo, one of the world’s largest cities, is on the island of Honshu in Japan. On another island, Manhattan, rise the towering skyscrapers of the financial capital of the world, New York City.</p>
+          <a href='https://google.com' class='card-content-inner_link'>Read the article</a>
+        </div>
+      </section>
+      <section class='card-image' style="background-color: #0f01">
+        <img src="/images/image_4.avif" alt='Island Image'/>
+      </section>
+    </article>
   </body>
 </html>

@@ -1,56 +1,46 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Welcome App</title>
+    <meta charset="UTF-8"/>
+    <link href="/vite.svg" rel="icon" type="image/svg+xml"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Vite App Welcome</title>
+    <link type="text/css" rel="stylesheet" href="./style.css">
   </head>
-  <body>
-    <header>Header <span>Linear</span></header>
-    <main>
-      <aside>Sidebar</aside>
-      <section>
-        <article>
-          <ul>
-            <li>First</li>
-            <li>Second</li>
-            <li>Third</li>
-          </ul>
-          <h1>Header Text</h1>
-          <p>Text <i>paragraph</i></p>
-        </article>
-        <a href="https://google.com">Google</a>
-        <img
-          width="100px"
-          src="https://images.unsplash.com/photo-1631995390084-cb82295cd2c0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
-        />
-        <table>
-          <tr>
-            <td>11</td>
-            <td>12</td>
-            <td>12</td>
-          </tr>
-          <tr>
-            <td>21</td>
-            <td>22</td>
-            <td>23</td>
-          </tr>
-        </table>
-      </section>
-      <section>
-        <div>
-          <label for="first_name">First name:</label>
-          <input id="first_name" type="text" pattern="[A-Za-z]{3}" />
-        </div>
-        <div>
-          <label for="second_name">Second name:</label>
-          <input id="second_name" type="text" />
-        </div>
-        <div id="result">Result</div>
-        <div><button>Send</button></div>
-      </section>
-    </main>
-    <footer>Footer</footer>
+  <body class="bg-gray-500">
+    <!-- https://dribbble.com/shots/14488146-White-UI -->
+    <div class="p-4 md:p-0">
+      <article class="flex flex-col w-full md:w-96 bg-neutral-50 p-6 mx-auto rounded-lg mt-12">
+        <header class="flex flex-row order-0 justify-between items-center">
+          <span style="content: url('https://api.iconify.design/icon-park-solid/youtube.svg?color=red&width=52');">icon</span>
+          <div class="px-4 py-1 bg-green-200 text-green-500 text-xs font-bold rounded-2xl h-full">Free</div>
+        </header>
+        <main class="flex flex-col order-1 pt-12">
+          <section class="flex flex-col">
+            <div class="text-base">Videos</div>
+            <div class="text-3xl font-bold mt-2">Youtube</div>
+          </section>
+          <section class="flex flex-col md:flex-row mt-4">
+            <div class="basis-1/3">
+              <h5 class="text-sm text-gray-700">Rating</h5>
+              <h4 class="text-lg font-bold mt-1">5.0</h4>
+            </div>
+            <div class="basis-1/3">
+              <h5 class="text-sm text-gray-700">Size</h5>
+              <h4 class="text-lg font-bold mt-1">95.0 mb</h4>
+            </div>
+            <div class="basis-1/3">
+              <h5 class="text-sm text-gray-700">Downloads</h5>
+              <h4 class="text-lg font-bold mt-1">13.3m</h4>
+            </div>
+          </section>
+        </main>
+        <footer class="pt-10 order-2">
+          <div>
+            <span style="content: url('https://api.iconify.design/ic/round-download-for-offline.svg?color=%23aaa&width=48');">icon</span>
+          </div>
+        </footer>
+      </article>
+    </div>
   </body>
 </html>

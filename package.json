@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && surge ./dist permissible-feeling-itmo-2023-spring.surge.sh && chrome.exe permissible-feeling-itmo-2023-spring.surge.sh",
     "preview": "vite preview"
   },
   "devDependencies": {

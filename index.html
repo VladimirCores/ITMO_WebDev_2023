@@ -6,43 +6,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Welcome App</title>
     <style>
-      body {
-        margin: 0;
-        display: grid;
-        grid-template-areas:
-          "header header header"
-          "nav section aside"
-          "footer footer footer";
-        grid-template-rows: 100px 1fr 48px;
-        grid-template-columns: 20% 1fr 20%;
-        grid-gap: 8px;
-        height: 100vh;
-      }
-      body * {
-        padding: 12px;
-      }
-      header {
-        grid-area: header;
-      }
-      nav {
-        grid-area: nav;
-      }
-      section {
-        grid-area: section;
-      }
-      aside {
-        grid-area: aside;
-      }
-      footer {
-        grid-area: footer;
+      @tailwind base;
+      @tailwind components;
+      @tailwind utilities;
+      .icon-youtube {
+
       }
     </style>
   </head>
-  <body>
-    <header style="background-color: #f001;">header</header>
-    <nav style='background-color: #ff01'>nav</nav>
-    <section style='background-color: #f0f1'>section</section>
-    <aside style='background-color: #0ff1'>aside</aside>
-    <footer style='background-color: #f001'>footer</footer>
+  <body class="flex h-screen flex-row justify-center items-center bg-gray-700/10">
+    <div class="w-56 p-4 bg-white rounded-xl">
+      <div class='flex flex-col'>
+        <div class='flex flex-row justify-between'>
+          <div style='content: url("https://api.iconify.design/mdi/youtube.svg?width=50&height=50&color=red");'></div>
+          <div>free</div>
+        </div>
+        <div class='flex flex-row' style="background-color: #ff01">
+          Location
+          YouTube
+        </div>
+        <div class='flex flex-row justify-between' style="background-color: #f0f1">
+          <div class='flex flex-col'>
+            <div>Rating</div>
+            <div>4.5</div>
+          </div>
+          <div class='flex flex-col'>
+            <div>Size</div>
+            <div>246</div>
+          </div>
+          <div class='flex flex-col'>
+            <div>Download</div>
+            <div>5m</div>
+          </div>
+        </div>
+        <div class='flex flex-row' style="background-color: #ff01">
+          icon
+          30 Mb / Sec
+        </div>
+      </div>
+    </div>
   </body>
 </html>

@@ -5,50 +5,237 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- displays site properly based on user's device -->
     <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png" />
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
     <title>Frontend Mentor | Intro section with dropdown navigation</title>
+    <style>
+      @import "style.css";
+    </style>
   </head>
   <!--  https://dribbble.com/shots/18048975-Project-Management-Dashboard-->
   <body class="h-screen h-screen bg-teal-900/20 p-12">
     <div class="flex h-full w-full flex-row rounded-3xl bg-gray-100 p-4">
-      <aside class="flex w-[377px] flex-col px-2 py-8">
-        <div class="flex flex-row">Logo Taski</div>
-        <div class="flex flex-row">Account</div>
-        <div class="flex flex-row">Pages</div>
-        <div class="flex flex-row">Labels</div>
-      </aside>
-      <div class="flex w-full flex-col justify-between gap-y-4 rounded-2xl bg-white px-6 pt-8">
-        <header class="flex flex-row justify-between">
-          <div class="flex flex-col">Team tasks</div>
+      <aside class="flex flex-col pl-2 pr-6 pt-4 min-w-[255px]">
+        <div class="flex flex-row py-4 items-center gap-x-2">
+          <span
+            class="iconify-inline text-teal-700 text-3xl rotate-90"
+            data-icon="heroicons-solid:cube-transparent"
+          ></span>
+          <span class="font-bold text-2xl tracking-wide">Taski</span>
+        </div>
+        <div class="flex flex-row py-4 gap-x-2 items-center">
+          <span
+            class="iconify-inline text-neutral-700 text-[38px]"
+            data-icon="carbon:user-avatar-filled-alt"
+          ></span>
           <div class="flex flex-col">
-            <div class="flex flex-row gap-x-4">
-              <div>Search</div>
-              <div><button>Create task</button></div>
+            <span class="font-bold">Vladimir Minkin</span>
+            <span class="text-sm leading-none text-neutral-500">Premium account</span>
+          </div>
+        </div>
+        <div class="flex flex-row py-2">
+          <div class="flex flex-col w-full gap-y-4">
+            <div class="flex flex-row items-center justify-between">
+              <div class="flex flex-col">
+                <div class="flex flex-row gap-x-2 items-center leading-none text-neutral-500">
+                  <span
+                    class="iconify-inline text-base"
+                    data-icon="tabler:activity-heartbeat"
+                  ></span>
+                  <span class="">Activity</span>
+                </div>
+              </div>
+              <div class="flex flex-col items-center">
+                <div class="badge-teal">3</div>
+              </div>
+            </div>
+            <div class="flex flex-row gap-x-2 items-center leading-none text-neutral-500">
+              <span class="iconify-inline text-base" data-icon="ooui:user-avatar"></span>
+              <span class="">My Profile</span>
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-row pt-4">
+          <div class="flex flex-col w-full">
+            <hr />
+            <div class="flex flex-row w-full justify-between py-5">
+              <span class="font-bold">Pages</span>
+              <span
+                class="iconify-inline text-neutral-500 text-xl -rotate-90"
+                data-icon="material-symbols:chevron-right-rounded"
+              ></span>
+            </div>
+            <div class="flex flex-row items-stretch">
+              <div class="flex flex-col gap-y-2 w-full">
+                <div class="flex flex-row gap-x-2 py-1 items-center leading-none text-neutral-500">
+                  <span
+                    class="iconify-inline text-base"
+                    data-icon="material-symbols:dashboard-outline-rounded"
+                  ></span>
+                  <span class="">Dashboard</span>
+                </div>
+                <div
+                  class="flex flex-row gap-x-2 py-1 text-teal-600 font-bold items-center leading-none text-neutral-500"
+                >
+                  <span
+                    class="iconify-inline text-base"
+                    data-icon="material-symbols:task-outline-rounded"
+                  ></span>
+                  <span class="">Tasks</span>
+                </div>
+                <div class="flex flex-row gap-x-2 py-1 items-center leading-none text-neutral-500">
+                  <span
+                    class="iconify-inline text-base"
+                    data-icon="fluent:people-team-16-regular"
+                  ></span>
+                  <span class="">Teams</span>
+                </div>
+                <div class="flex flex-row gap-x-2 py-1 items-center leading-none text-neutral-500">
+                  <span class="iconify-inline text-base" data-icon="tabler:message"></span>
+                  <span class="">Messages</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-row h-full items-end">
+          <div class="flex flex-col text-sm text-neutral-400 gap-y-1">
+            <a href="#" class="flex flex-row items-center hover:text-neutral-600 gap-x-1">
+              <span class="iconify-inline" data-icon="material-symbols:info-outline-rounded"></span>
+              <span>Help Center</span>
+            </a>
+            <a href="#" class="flex flex-row items-center hover:text-neutral-600 gap-x-1">
+              <span class="iconify-inline" data-icon="tabler:logout"></span>
+              <span> Log out</span>
+            </a>
+          </div>
+        </div>
+      </aside>
+      <div class="flex w-full flex-col justify-between gap-y-5 rounded-2xl bg-white px-6 pt-8">
+        <header class="flex flex-row items-center justify-between">
+          <div class="flex flex-col">
+            <span class="text-2xl font-bold">Team tasks </span>
+          </div>
+          <div class="flex flex-col">
+            <div class="flex flex-row gap-x-5">
+              <div>
+                <input
+                  class="box-content rounded-lg outline outline-1 outline-gray-300 bg-gray-100 px-3 py-2 focus:border-gray-400 focus:outline-gray-500"
+                  placeholder="Search"
+                />
+              </div>
+              <div>
+                <button class="rounded-lg bg-teal-600 px-4 py-2 text-white hover:bg-teal-700">
+                  + Create task
+                </button>
+              </div>
             </div>
           </div>
         </header>
         <main class="flex h-full flex-row">
-          <div class="flex w-full flex-col gap-y-4">
-            <div class="flex flex-row">Filters</div>
-            <div class="grid w-full grid-cols-3 gap-x-4">
-              <div class="flex flex-col gap-y-2 rounded-xl bg-gray-100 p-4">
-                <div class="flex flex-row">Todo 2 + ...</div>
-                <div class="flex flex-row">
-                  <div class="flex w-full flex-col rounded-xl bg-white p-3">
-                    <div class="flex">Layout Design ...</div>
-                    <div class="flex">Update Web icon 12 days left</div>
-                    <div class="flex">Assignees</div>
+          <div class="flex w-full flex-col gap-y-5">
+            <div class="flex flex-row justify-between">
+              <div class="flex flex-col">
+                <div class="flex flex-row items-center gap-x-1">
+                  <span
+                    class="iconify-inline text-lg text-neutral-400"
+                    data-icon="material-symbols:filter-alt"
+                  ></span>
+                  <span class="text-gray-500">Filters</span>
+                  <span
+                    class="iconify-inline text-neutral-500 text-xl rotate-90"
+                    data-icon="material-symbols:chevron-right-rounded"
+                  ></span>
+                </div>
+              </div>
+              <div class="flex flex-col text-neutral-400">
+                <div class="flex flex-row gap-x-5">
+                  <div class="flex flex-row items-center">
+                    <span>Sort by</span>
+                    <span
+                      class="iconify-inline text-neutral-500 text-xl rotate-90"
+                      data-icon="material-symbols:chevron-right-rounded"
+                    ></span>
+                  </div>
+                  <div class="flex flex-row items-center">
+                    Group by:&nbsp;
+                    <span class="text-neutral-500">Status</span>
+                    <span
+                      class="iconify-inline text-neutral-500 text-xl rotate-90"
+                      data-icon="material-symbols:chevron-right-rounded"
+                    ></span>
                   </div>
                 </div>
-                <div class="flex flex-row"><button>+ Add task</button></div>
+              </div>
+            </div>
+            <div class="grid w-full grid-cols-3 gap-x-4">
+              <div class="flex flex-col gap-y-3 rounded-xl bg-gray-100 p-4">
+                <div class="flex flex-row justify-between pt-1 py-3">
+                  <div class="flex flex-col">
+                    <div class="flex flex-row items-center gap-x-2">
+                      <div class="text-xl font-bold">To Do</div>
+                      <div class="text-xl text-neutral-400">2</div>
+                    </div>
+                  </div>
+                  <div class="flex flex-row gap-x-3 items-center text-center text-lg">
+                    <button class="text-neutral-400 hover:text-neutral-800">+</button>
+                    <button class="text-neutral-400 hover:text-neutral-800">...</button>
+                  </div>
+                </div>
+                <div class="flex flex-row drop-shadow-sm">
+                  <div class="flex w-full flex-col rounded-lg bg-white p-3 gap-y-1">
+                    <div class="flex flex-row justify-between">
+                      <h1 class="font-bold">Layout Design</h1>
+                      <button class="text-neutral-400">...</button>
+                    </div>
+                    <div class="flex flex-row py-2 justify-between items-center gap-x-2">
+                      <div class="flex flex-row items-center gap-x-2">
+                        <div class="badge-gray">Update</div>
+                        <div class="badge-gray">Web</div>
+                      </div>
+                      <div class="flex flex-row items-center gap-x-1 text-sm leading-none">
+                        <span
+                          class="iconify-inline text-teal-500 rotate-90"
+                          data-icon="ic:twotone-access-time"
+                        ></span>
+                        <span class="text-neutral-600">12 days left</span>
+                      </div>
+                    </div>
+                    <div class="flex flex-row -space-x-3 text-xs items-center">
+                      <span
+                        class="w-7 h-7 bg-green-200 border-2 border-green-300 rounded-full"
+                      ></span>
+                      <span
+                        class="w-7 h-7 bg-yellow-200 border-2 border-yellow-300 rounded-full"
+                      ></span>
+                      <span
+                        class="flex flex-row items-center justify-center w-7 h-7 bg-blue-200 text-blue-600 border-2 leading-none align-middle border-blue-300 rounded-full text-center"
+                      >
+                        +2
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex w-full flex-row drop-shadow-sm justify-center">
+                  <button
+                    class="w-full bg-white rounded-lg py-2 text-neutral-500 hover:text-neutral-700"
+                  >
+                    + Add task
+                  </button>
+                </div>
               </div>
               <div class="flex flex-col gap-y-2 rounded-xl bg-gray-100 p-4">In progress</div>
               <div class="flex flex-col gap-y-2 rounded-xl bg-gray-100 p-4">Ready</div>
             </div>
           </div>
         </main>
-        <footer class="flex flex-row">Footer</footer>
+        <footer class="flex flex-row items-center py-3">
+          <span class="text-neutral-600">10 tasks</span>
+          <span
+            class="iconify-inline text-neutral-500 text-xl rotate-90"
+            data-icon="material-symbols:chevron-right-rounded"
+          ></span>
+        </footer>
       </div>
     </div>
-    <script type="module" src="main.js"></script>
   </body>
 </html>

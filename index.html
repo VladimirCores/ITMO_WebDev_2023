@@ -5,9 +5,52 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>JS Intro</title>
+    <style>
+      .spinner {
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        border: 3px solid rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        border-top-color: red;
+        animation: spin 1s ease-in-out infinite;
+        -webkit-animation: spin 1s ease-in-out infinite;
+      }
+
+      @keyframes spin {
+        to {
+          -webkit-transform: rotate(360deg);
+        }
+      }
+      @-webkit-keyframes spin {
+        to {
+          -webkit-transform: rotate(360deg);
+        }
+      }
+    </style>
   </head>
   <body>
+    <div style="position: fixed; background-color: black; width: 100vh; height: 100vh">
+      <div class="spinner"></div>
+    </div>
+    <div id="app">
+      <div style="margin-bottom: 1rem">
+        <span>Name:</span>
+        <input id="inpName" />
+      </div>
+      <div style="margin-bottom: 1rem">
+        <span>Surname:</span>
+        <input id="inpSurname" />
+      </div>
+      <select id="slcOperation" name="pets" id="pet-select">
+        <option value="plus">Plus</option>
+        <option value="minus">Minus</option>
+      </select>
+      <div>
+        Result:
+        <div id="conResult"></div>
+      </div>
+    </div>
     <script type="module" src="/main.js"></script>
-    <div id="app"></div>
   </body>
 </html>

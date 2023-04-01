@@ -1,24 +1,35 @@
-import './style.css'
-import javascriptLogo from './javascript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.js'
+const DOM = document.getElementById.bind(document);
 
-document.querySelector('#app').innerHTML = `
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a>
-    <h1>Hello Vite!</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
-    </p>
-  </div>
-`
+const domInpName = DOM("inpName");
+const domInpSurname = DOM("inpSurname");
+const domConResult = DOM("conResult");
+const domSlcOperation = DOM("slcOperation");
 
-setupCounter(document.querySelector('#counter'))
+domInpName.oninput = function (event) {
+  console.log("onInpNameInput:", { event });
+  renderFullName();
+};
+
+domInpSurname.oninput = function (event) {
+  console.log("onInpNameInput:", { event });
+  renderFullName();
+};
+
+const getFullName = () => `${domInpName.value} ${domInpSurname.value}`;
+
+const operation = {
+  plus: () => {
+    return parseInt(domInpName.value) + parseInt(domInpSurname.value);
+  },
+  minus: () => {
+    return parseInt(domInpName.value) - parseInt(domInpSurname.value);
+  },
+};
+
+function renderFullName() {
+  const fullName = getFullName();
+  console.log("renderFullName:", { fullName, selected: domSlcOperation.value });
+  domConResult.textContent = operation[domSlcOperation.value]();
+}
+
+console.log(domInpName, domInpSurname);

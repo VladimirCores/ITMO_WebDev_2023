@@ -56,6 +56,7 @@ function onCreateTaskClick() {
 
   renderTask(taskVO);
   tasks.push(taskVO);
+
   console.log('confirm', taskVO);
   localStorage.setItem(KEY_LOCAL_TASKS, JSON.stringify(tasks));
 }
@@ -67,37 +68,27 @@ function renderTask(taskVO) {
   domTaskColumn.prepend(domTaskClone);
 }
 
-function renderTaskPopup(popupTitle, btnConfirmText, confirmCallback) {
-  const domPopupCreateTask = getDOM(DOM.Popup.CREATE_TASK);
+async function renderTaskPopup(popupTitle, confirmText, confirmCallback) {
+  const domPopupContainer = getDOM(DOM.Popup.CONTAINER);
+  const domSpinner = domPopupContainer.querySelector('.spinner');
 
-  const domBtnClose = QUERY(
-    domPopupCreateTask,
-    DOM.Button.POPUP_CREATE_TASK_CLOSE
+  domPopupContainer.classList.remove('hidden');
+
+  const TaskPopup = (await import('./src/view/popup/TaskPopup')).default;
+  const taskPopupInstance = new TaskPopup(
+    popupTitle,
+    Tags,
+    confirmText,
+    confirmCallback,
+    () => {
+      domPopupContainer.children[0].remove();
+      domPopupContainer.append(domSpinner);
+      domPopupContainer.classList.add('hidden');
+    }
   );
-  const domBtnConfirm = QUERY(
-    domPopupCreateTask,
-    DOM.Button.POPUP_CREATE_TASK_CONFIRM
-  );
-  const domTitle = QUERY(domPopupCreateTask, DOM.Popup.CreateTask.TITLE);
 
-  domBtnConfirm.innerText = btnConfirmText;
-  domTitle.innerText = popupTitle;
-
-  const onClosePopup = () => {
-    domPopupCreateTask.classList.add('hidden');
-    domBtnClose.onclick = null;
-    domBtnConfirm.onclick = null;
-  };
-
-  domPopupCreateTask.classList.remove('hidden');
-
-  domBtnClose.onclick = onClosePopup;
-
-  domBtnConfirm.onclick = () => {
-    const taskTitle = randomString(12);
-    const taskDate = randomString(12);
-    const taskTags = Tags[0];
-    confirmCallback && confirmCallback(taskTitle, taskDate, taskTags);
-    onClosePopup();
-  };
+  setTimeout(() => {
+    domSpinner.remove();
+    domPopupContainer.append(taskPopupInstance.render());
+  }, 1000);
 }

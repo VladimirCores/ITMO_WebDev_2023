@@ -3,13 +3,14 @@ import {onMounted, ref} from 'vue';
 import AppHeader from './components/AppHeader.vue';
 
 const user = ref({ name: 'Vladimir' });
+const header = ref(null);
 
 onMounted(() => {
-  console.log('> App -> onMounted');
+  console.log('> App -> onMounted: header =', header);
 });
 </script>
 <template>
-  <AppHeader>
+  <AppHeader ref="header">
     Todo App
     <template #sub-header>
       <span v-if="user">created by {{ user.name }}</span>
@@ -26,4 +27,3 @@ onMounted(() => {
   </div>
   <router-view />
 </template>
-

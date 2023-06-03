@@ -12,6 +12,9 @@ import PROVIDE from '@/constants/provides.js';
 const pb = new PocketBase(import.meta.env.VITE_SERVER_PATH);
 console.log('pb.authStore.isValid:', pb.authStore.isValid);
 
+// let db = new PouchDB('books');
+// console.log(db);
+
 createApp(AppComposition)
   .use(createPinia().use(piniaPluginPersistedState))
   .provide(PROVIDE.PB, pb)

@@ -1,4 +1,5 @@
 const PROVIDE = {
-  PB: 'pb'
+  PB: 'pb', // Pocketbase
+  DB: 'db' // PouchDB
 };
 export default PROVIDE;

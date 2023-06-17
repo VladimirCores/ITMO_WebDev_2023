@@ -1,7 +1,6 @@
-import {inject} from 'vue';
 import {createRouter, createWebHashHistory} from 'vue-router';
 import ROUTES, {PUBLIC_PAGES} from './constants/routes.js';
-import PROVIDE from '@/constants/provides.js';
+import {useUserStore} from '@/store/userStore';
 
 const router = createRouter({
   history: createWebHashHistory(),
@@ -34,17 +33,15 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  const pb = inject(PROVIDE.PB);
-  console.log('pb.authStore', pb.authStore);
-  const userLoggedIn = pb.authStore.model?.id;
-  if (userLoggedIn) {
+  const userStore = useUserStore();
+  if (userStore.hasUser) {
     checkNavigation([ROUTES.SIGNUP], to.path, from, next, true);
   } else {
     checkNavigation(PUBLIC_PAGES, to.path, {path: ROUTES.SIGNIN}, next);
   }
 });
 
-function checkNavigation(routes, path, gotoRoute, next, isPathIncluded = false) {
+function checkNavigation(routes: string[], path: string, gotoRoute: any, next: any, isPathIncluded = false) {
   const pathIndex = routes.indexOf(path);
   const notAllowedNavigation = isPathIncluded ? pathIndex > -1 : pathIndex < 0;
   console.log('> router -> beforeEach', path, {notAllowedNavigation});

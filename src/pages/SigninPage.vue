@@ -20,11 +20,9 @@ const { load, onResult, onError } = useLazyQuery(gql`query GetUserWithCredential
 
 onResult((result) => {
   console.log('result', result);
-  if (!result.loading) {
-    if (result.data.user.length === 1) {
-      userStore.setupUser(result.data.user[0]);
-      isSuccess.value = true;
-    }
+  isSuccess.value = result.data.user?.length === 1;
+  if (isSuccess.value) {
+    userStore.setupUser(result.data.user[0]);
   }
 });
 onError((error) => {

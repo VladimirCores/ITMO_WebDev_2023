@@ -4,22 +4,20 @@ import AppHeader from '@/components/AppHeader.vue';
 import AppMenu from '@/components/AppMenu.vue';
 import ROUTES from '@/constants/routes.js';
 import {useRoute} from 'vue-router';
-import {useQuery} from '@vue/apollo-composable';
-import gql from 'graphql-tag';
 import {useUserStore} from '@/store/userStore';
 import {storeToRefs} from 'pinia';
 
 const userStore = useUserStore();
 const { user, hasUser } = storeToRefs(userStore);
 
-const { result: usersData, loading: isUserLoading, error: errorUserLoading } = useQuery(gql`
-  query getUsers {
-    user {
-      id
-      name
-    }
-  }
-`);
+// const { result: usersData, loading: isUserLoading, error: errorUserLoading } = useQuery(gql`
+//   query getUsers {
+//     users {
+//       id
+//       name
+//     }
+//   }
+// `);
 
 const checkRouteIsNotCurrent = (routePath: string) => useRoute().path !== routePath;
 
@@ -35,20 +33,7 @@ const menuLinks = reactive([
 </script>
 <template>
   <AppHeader>
-    Todo App
-    <div v-if="isUserLoading">
-      Users Loading
-    </div>
-    <div v-else-if="usersData">
-      {{ usersData.user }}
-    </div>
-    <div v-else-if="errorUserLoading">
-      Error loading user: {{ errorUserLoading }}
-    </div>
-    <template #sub-header>
-      <span v-if="hasUser">created by {{ user.name }}</span>
-      <span v-else>noname</span>
-    </template>
+    Books App
   </AppHeader>
   <AppMenu
     style="margin: 2rem 0;"

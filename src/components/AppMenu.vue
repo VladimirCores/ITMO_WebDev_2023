@@ -2,7 +2,7 @@
 defineProps({
   bgColor: {
     type: String,
-    default: 'gold',
+    default: 'transparent',
     required: true
   },
   links: {
@@ -24,7 +24,7 @@ defineProps({
         @click="menuItem.onClick"
       >
         {{ menuItem.name }}
-      </router-link> 
+      </router-link>
     </template>
   </div>
 </template>

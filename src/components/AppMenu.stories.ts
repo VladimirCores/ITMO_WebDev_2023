@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
-
 import AppMenu from './AppMenu.vue';
 
 const meta = {
@@ -27,3 +26,4 @@ export const SingleLink: Story = {
     links: [{ name: 'Home', link: '/index', canRender: true }],
   },
 };
+

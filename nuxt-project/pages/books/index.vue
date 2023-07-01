@@ -45,14 +45,18 @@
     </div>
   </div>
 </template>
-<script setup lang="ts">
+<script setup>
 import gql from 'graphql-tag';
 const route = useRoute();
 const isBooksLoading = ref(false);
 const books = useState('books', () => []);
-const routerQueryPage: string = route.query.page?.toString() || '';
+const routerQueryPage = route.query.page?.toString() || '';
 const pageIndex = ref(parseInt(routerQueryPage) || 1);
 const pagesMax = ref(0);
+
+const onChangePage = (delta) => {
+  console.log(delta);
+};
 
 const query = gql`
 query GetBooks($limit: Int!, $offset: Int!) {
@@ -73,8 +77,8 @@ if (books.value.length === 0) {
   const { data } = await useAsyncQuery(query, { limit: 10, offset: 0 });
   if (data.value?.books) {
     // log response
-    console.log(data.value.books);
-    books.value = data.value.books;
+    console.log(data.value?.books);
+    books.value = data.value?.books;
     isBooksLoading.value = false;
   }
 }

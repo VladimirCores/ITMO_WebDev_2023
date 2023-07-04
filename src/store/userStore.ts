@@ -35,10 +35,6 @@ export const useUserStore = defineStore('user', {
       console.log('> userStore -> setupUser: ', { user });
       this.user = user;
     },
-    async insertCommentToBook(bookId: number, comment: string) {
-      console.log('> userStore -> insertCommentToBook: ', { bookId, comment });
-      return insertCommentToBook({ book_id: bookId, user_id: this.userId, comment });
-    }
   },
   persist: true
 });

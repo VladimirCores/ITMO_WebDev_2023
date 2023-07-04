@@ -45,7 +45,7 @@ query GetBooks($id: Int!) {
 `));
 
 export const useBooksStore = defineStore('books', {
-  state: (): any => ({ selectedBook: undefined, isSelectedBookLoading: true }),
+  state: (): any => ({ books: undefined, selectedBook: undefined, isSelectedBookLoading: true }),
   actions: {
     async loadBookDetailsWithCommentsById(id: string) {
       return new Promise((resolve) => {

@@ -18,10 +18,10 @@ export default defineNuxtConfig({
     apollo: {
         clients: {
             default: {
-                httpEndpoint: process.env.VITE_GRAPHQL_END_POINT,
+                httpEndpoint: process.env.VITE_GRAPHQL_END_POINT ?? '',
                 httpLinkOptions: {
                     headers: {
-                        'x-hasura-admin-secret': process.env.VITE_GRAPHQL_ADMIN_SECRET
+                        'x-hasura-admin-secret': process.env.VITE_GRAPHQL_ADMIN_SECRET ?? ''
                     }
                 }
             }

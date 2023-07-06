@@ -20,6 +20,9 @@ const LAYOUTS = ['default', 'mobile'];
 const appConfig = useAppConfig();
 const layout = ref<string>(LAYOUTS[0]);
 
+const users = await useFetch('/api/users');
+console.log('> App -> users:', users);
+
 const menuLinks = reactive([
   { name: 'Index', link: 'ROUTES.INDEX', canRender: computed(() => true) },
   { name: 'Books', link: 'ROUTES.BOOKS', canRender: computed(() => true) },

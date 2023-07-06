@@ -5,5 +5,5 @@
 
 <script setup lang="ts">
 const users = ref<Array<any>>([]);
-useFetch('/api/users').then((response) => users.value = response.data.value);
+// useFetch('/api/users').then((response) => users.value = response.data.value);
 </script>
